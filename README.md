@@ -5,9 +5,9 @@
 <h1 align="center">Shop_react</h1>
 
 <p align="center">
-  <img alt="Main language of the project" src="https://img.shields.io/github/languages/top/Hir4/database?color=56BEB8">
+  <img alt="Main language of the project" src="https://img.shields.io/github/languages/top/Hir4/shop_react?color=56BEB8">
 
-  <img alt="Quantity of language used" src="https://img.shields.io/github/languages/count/Hir4/database?color=56BEB8">
+  <img alt="Quantity of language used" src="https://img.shields.io/github/languages/count/Hir4/shop_react?color=56BEB8">
 </p>
 
 <br>
