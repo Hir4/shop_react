@@ -16,4 +16,19 @@ Project using React.
 - [Javascript]
 - [React]
 
+## :white_check_mark: Prerequisite ##
+
+Before start, you will need:
+- [Create-React-App]
+```bash
+npx create-react-app my-app
+```
+- [Axios]
+```bash
+npm install axios
+```
+- [React-Router-Dom]
+```bash
+npm install react-router-dom
+```
 
