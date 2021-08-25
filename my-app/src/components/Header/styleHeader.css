@@ -1,0 +1,127 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.container-header{
+  width: 100%;
+  height: 100%;
+}
+
+header{
+  display: flex;
+  flex-direction: column;
+}
+
+.header-login, .main-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 50px;
+  background-color: #A43702;
+}
+
+.box-message{
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+
+.box-message span{
+  margin-left: 5px;
+}
+
+.header-login button, #electronics{
+  width: 10vw;
+  height: 3.5vh;
+  border: none;
+  border-radius: 5px;
+  background-color: #EF963F;
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.main-header{
+  height: 70px;
+  background-color: #C44D03;
+}
+
+#logo{
+  width: 200px;
+}
+
+form{
+  display: flex;
+  flex-direction: row;
+}
+
+#electronics{
+  width: 7vw;
+  border-radius: 5px 0px 0px 5px;
+}
+
+#search_input{
+  width: 25vw;
+  height: 3.5vh;
+  padding-left: 5px;
+  border: none;
+  border-radius: 0;
+  color: #292929;
+  font-size: 14px;
+}
+
+#button_submit{
+  width: 4vw;
+  height: 3.5vh;
+  border: none;
+  border-radius: 0px 5px 5px 0px;
+  background-color: #e7e7e7;
+  cursor: pointer;
+}
+
+.account-cart, .cart-option{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.account-cart span{
+  color: #ffffff;
+  font-weight: bold;
+  margin: 5px;
+}
+
+.account-option, .cart-option, .link-decoration{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#cart-counter{
+  width: 20px;
+  color: #E56705;
+  background-color: #ffffff;
+  border-radius: 50%;
+  text-align: center;
+}
+
+@media(max-width: 1366px){
+  .header-login button, #electronics{
+    width: 15vw;
+    height: 6vh;
+  }
+  #electronics{
+    width: 9vw;
+  }
+  
+  #search_input{
+    width: 25vw;
+    height: 6vh;
+  }
+  
+  #button_submit{
+    width: 4vw;
+    height: 6vh;
+  }
+}
