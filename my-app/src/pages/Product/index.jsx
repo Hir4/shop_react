@@ -1,12 +1,10 @@
 import React from 'react';
-import { useHistory } from "react-router-dom";
 import Header from '../../components/Header/index.jsx';
 import Back from '../../assets/images/back_button.svg';
 import Star from '../../assets/images/star.svg'
 import './styleProduct.css';
 
 function Product() {
-  const history = useHistory();
   return (
     <React.Fragment>
       <Header />
@@ -15,7 +13,7 @@ function Product() {
           <img src={Back} alt="Back button" />
           <span>Back</span>
         </div>
-        <span className="location-bar">home > processors</span>
+        <span className="location-bar">home {'>'} processors</span>
         <div className="container-product">
           <div className="product-img">
           </div>
