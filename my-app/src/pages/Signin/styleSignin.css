@@ -1,0 +1,86 @@
+.container-signin{
+  max-width: 1366px;
+  height: 768px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 50px auto;
+}
+
+#logo{
+  width: 200px;
+}
+
+.forms, #signin-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.forms h1{
+  color: #FFB64C;
+}
+
+.form-control{
+  width: 300px;
+  height: 30px;
+  padding-left: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border: solid #FFB64C 1px;
+  border-radius: 5px;
+}
+
+.btn-signin{
+  width: 310px;
+  height: 40px;
+  margin-top: 20px;
+  background-color: #E56705;
+  color: #ffffff;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.forms span, .login-button{
+  margin-top: 20px;
+  color: #292929;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#error-message{
+  font-weight: 400;
+  color: #b60000;
+  cursor: initial;
+}
+
+.forms span:hover, .btn-signin:hover{
+  opacity: 0.9;
+}
+
+.back-button{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+#back-button-img{
+  width: 50px;
+}
+
+.back-button span{
+  margin-left: 5px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #292929;
+}
+
+@media (max-width: 1366px){
+  .container-signin{
+    max-width: 960px;
+    height: 540px;
+  }
+}
