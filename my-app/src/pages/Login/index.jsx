@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory, Link } from "react-router-dom";
-import Axios from 'axios';
+import Server from './../../services/server/server.js';
 import Logo from '../../assets/logo/logo.svg';
 import Back from '../../assets/images/back_button.svg';
 import './styleLogin.css';
@@ -17,7 +17,7 @@ function Login() {
 
   function handleLoginSubmit(formData) {
     formData.preventDefault();
-    Axios.post(url, {
+    Server.post(url, {
       email: login.email,
       password: login.password
     })
