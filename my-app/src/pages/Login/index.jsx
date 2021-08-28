@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory, Link } from "react-router-dom";
-import Server from './../../services/server/server.js';
+import Server from './../../services/server.js';
 import Logo from '../../assets/logo/logo.svg';
 import Back from '../../assets/images/back_button.svg';
 import './styleLogin.css';
@@ -24,7 +24,8 @@ function Login() {
       .then(res => {
         console.log(res);
         if (res.status === 200) {
-          history.push(`/${res.data}`);
+          document.cookie = "cookieId =" + res.data + ";";
+          history.push(`/`);
           console.log("Connected")
         }
       })
