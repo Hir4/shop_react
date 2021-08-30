@@ -1,27 +1,22 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import React, { createContext, useState, useContext } from 'react';
 
 const CartContext = createContext();
 
 export default function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
-  const [totalValue, setTotalValue] = useState();
-
-  useEffect(() => {
-    let value = 0;
-    cart.map((item) => {
-      return value = value + item.price;
-    });
-    setTotalValue(value);
-  }, [cart])
 
   function addCart(item) {
-    const newCart = cart;
-    newCart.push(item);
+    const foundId = cart.find(itemCart => itemCart.id === item.id);
+    console.log(foundId);
+    if (foundId === undefined) {
+      const newCart = cart;
+      newCart.push(item);
 
-    setCart([...newCart]);
+      setCart([...newCart]);
+    }
   }
 
-  function removeCart (idItem){
+  function removeCart(idItem) {
     let newCart = cart.filter((item) => item.id !== idItem);
 
     setCart([...newCart]);
@@ -30,8 +25,7 @@ export default function CartProvider({ children }) {
   const store = {
     addCart,
     removeCart,
-    cart,
-    totalValue
+    cart
   }
 
   return (
@@ -46,15 +40,13 @@ export function useCart() {
   const {
     cart,
     addCart,
-    removeCart,
-    totalValue
+    removeCart
   } = context;
 
   return {
     cart,
     addCart,
-    removeCart,
-    totalValue
+    removeCart
   }
 
 }
