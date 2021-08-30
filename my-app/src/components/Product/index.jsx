@@ -6,8 +6,10 @@ import HeaderAfterLogin from '../../components/HeaderAfterLogin/index.jsx';
 import Back from '../../assets/images/back_button.svg';
 import Star from '../../assets/images/star.svg';
 import PackIcon from '../../assets/images/pack-icon.png';
+import {useCart} from '../../context/cart.js';
 
 function ProductClicked() {
+  const {addCart} = useCart();
   const { product_id } = useParams();
   console.log(product_id)
   const [product, setProduct] = useState(['load']);
@@ -68,7 +70,7 @@ function ProductClicked() {
         </div>
         <span className="product-price">{product[0].product_price}</span>
         <div className="product-buttons">
-          <button className="button-list">Car List</button>
+          <button onClick={()=>{addCart(product[0])}} className="button-list">Car List</button>
           <button className="button-buy">Buy</button>
         </div>
       </div>

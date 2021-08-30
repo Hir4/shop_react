@@ -4,9 +4,12 @@ import BoxIcon from '../../assets/images/box.svg';
 import Logo from '../../assets/logo/logo_white.svg';
 import Mgnf_glass from '../../assets/images/magnifying_glass.svg';
 import Cart from '../../assets/images/cart.svg';
+import {useCart} from '../../context/cart.js';
 import './styleHeader.css';
 
 function Header() {
+  const { cart } = useCart();
+  
   const history = useHistory();
   return (
     <div className="container-header">
@@ -40,7 +43,7 @@ function Header() {
               <div className="cart-option">
                 <img src={Cart} alt="Cart icon" />
                 <span>Cart</span>
-                <span id="cart-counter">0</span>
+                <span id="cart-counter">{Object.keys(cart).length}</span>
               </div>
             </Link>
           </div>
