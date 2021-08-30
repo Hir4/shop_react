@@ -14,6 +14,8 @@ Project using React.
 ## :rocket: Technologies ##
 
 - [Javascript]
+- [HTML]
+- [CSS]
 - [React]
 
 ## :white_check_mark: Prerequisite ##
