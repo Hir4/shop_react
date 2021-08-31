@@ -25,6 +25,7 @@ function Cart() {
             <div className="product-in-cart">
               <img src={PackIcon} alt="Pack icon" />
               <span>{item.product_name}</span>
+              <span>{item.product_price}</span>
               <span>1</span>
               <button className="remove-item" onClick={() => removeCart(item.id)}>Remove</button>
               <button className="buy-item">Buy</button>
