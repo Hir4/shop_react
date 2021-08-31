@@ -7,6 +7,8 @@ import './styleLogin.css';
 
 
 function Login() {
+  document.cookie = "cookieId=;expires=" + new Date().toUTCString() + ";path=/";
+  
   const history = useHistory();
 
   const url = "http://localhost:8080/login";
