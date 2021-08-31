@@ -3,11 +3,12 @@ import { Switch, BrowserRouter } from "react-router-dom";
 import Login from "../pages/Login/index.jsx";
 import Signin from "../pages/Signin/index.jsx";
 import Home from "../pages/Home/index.jsx";
+import ShoppingCart from '../pages/Cart/index.jsx'; 
+import Account from '../pages/Account/index.jsx';
 import Product from "../pages/Product/index.jsx";
 import Public from '../Routes/Public.jsx';
-import ShoppingCart from '../pages/Cart/index.jsx'; 
+import Private from '../Routes/Private.jsx';
 import CartProvider from '../context/cart.js';
-// import Private from '../Routes/Private.jsx';
 
 function Routes() {
   return (
@@ -19,6 +20,7 @@ function Routes() {
           <Public restricted={true} component={Signin} path="/signin" exact />
           <Public restricted={false} component={Product} path="/product/:product_id" exact />
           <Public restricted={false} component={ShoppingCart} path="/cart" exact />
+          <Private component={Account} path="/account" exact />
         </Switch>
       </BrowserRouter>
     </CartProvider>

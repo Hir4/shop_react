@@ -1,0 +1,60 @@
+.container-account{
+  width: 100%;
+  height: 100%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px 0;
+}
+.container-account img {
+  width: 150px;
+}
+
+.container-title-back{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.back-button{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding-left: 20px;
+}
+
+#back-button-img{
+  width: 50px;
+}
+
+.back-button span{
+  margin-left: 5px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #292929;
+}
+
+.container-account h1, .container-account h2{
+  color: #292929;
+}
+
+.container-account button{
+  width: 150px;
+  height: 30px;
+  background-color: #EF963F;
+  text-align: center;
+  color: #ffffff;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  margin: 15px 0;
+  cursor: pointer;
+}
+
+.container-account button:hover{
+  opacity: 0.9;
+}
+
+#delete-account{
+  background-color: #c00000;
+}
