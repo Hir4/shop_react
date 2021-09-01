@@ -3,6 +3,7 @@ import { Switch, BrowserRouter } from "react-router-dom";
 import Login from "../pages/Login/index.jsx";
 import Signin from "../pages/Signin/index.jsx";
 import Home from "../pages/Home/index.jsx";
+import PurchaseHistory from '../pages/History/index.jsx';
 import ShoppingCart from '../pages/Cart/index.jsx'; 
 import Account from '../pages/Account/index.jsx';
 import Product from "../pages/Product/index.jsx";
@@ -21,6 +22,7 @@ function Routes() {
           <Public restricted={false} component={Product} path="/product/:product_id" exact />
           <Public restricted={false} component={ShoppingCart} path="/cart" exact />
           <Private component={Account} path="/account" exact />
+          <Private component={PurchaseHistory} path="/history" exact />
         </Switch>
       </BrowserRouter>
     </CartProvider>

@@ -1,0 +1,30 @@
+.container-history{
+  width: 100%;
+  height: 100%;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-history h1{
+  color: #FFB64C;
+  margin: 20px;
+}
+
+.container-product-sale{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 900px;
+  height: 100px;
+  margin: 20px auto;
+  border: 2px solid #EF963F;
+  border-radius: 5px;
+  color: #292929;
+}
+
+.container-product-sale img{
+  width: 70px;
+}

@@ -1,29 +1,28 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import Server from './../../services/server.js';
 import Header from '../../components/Header/index.jsx';
 import HeaderAfterLogin from '../../components/HeaderAfterLogin/index.jsx';
 import Back from '../../assets/images/back_button.svg';
 import Star from '../../assets/images/star.svg';
 import PackIcon from '../../assets/images/pack-icon.png';
-import {useCart} from '../../context/cart.js';
+import { useCart } from '../../context/cart.js';
 
 function ProductClicked() {
-  const {addCart} = useCart();
+  const { addCart } = useCart();
   const { product_id } = useParams();
-  console.log(product_id)
+  const history = useHistory();
   const [product, setProduct] = useState(['load']);
   const url = "http://localhost:8080/getproductwithid";
+  const urlSale = "http://localhost:8080/sale";
 
   useEffect(() => {
     async function loadData() {
       try {
-        const { data } = await Server.post(url, {id: product_id});
-        console.log(data)
+        const { data } = await Server.post(url, { id: product_id });
 
         if (Array.isArray(data)) {
           setProduct(data)
-          console.log(data)
         }
       } catch (error) {
         console.log(error)
@@ -33,10 +32,40 @@ function ProductClicked() {
     loadData()
   }, [product_id])
 
-  function getHeader(){
-    if(document.cookie){
+  function getHeader() {
+    if (document.cookie) {
       return <HeaderAfterLogin />
-    } else{return <Header />}}
+    } else { return <Header /> }
+  }
+
+  function handleBuyItem(item_price, item_id) {
+    console.log(item_price)
+    console.log(item_id)
+    if (document.cookie) {
+      Server.post(urlSale, {
+        total_bought: item_price,
+        due_date: "NOW()",
+        shipping: "0",
+        delivery_time: "NOW()",
+        confirmation: "1",
+        creation_date: "NOW()",
+        pay_method: "1",
+        line_id: "1",
+        product_id: item_id,
+        product_quantity: "1"
+      })
+        .then(res => {
+          if (res.status === 200) {
+            history.push(`/`)
+            console.log("Sale signed with success");
+          }
+        })
+        .catch(() => {
+          // document.getElementById('error-message').textContent = "Check your info again";
+          console.log("Error trying to signed sale")
+        })
+    } else { history.push(`/login`) }
+  }
 
   return (
     <React.Fragment>
@@ -70,8 +99,8 @@ function ProductClicked() {
         </div>
         <span className="product-price">{product[0].product_price}</span>
         <div className="product-buttons">
-          <button onClick={()=>{addCart(product[0])}} className="button-list">Car List</button>
-          <button className="button-buy">Buy</button>
+          <button onClick={() => { addCart(product[0]) }} className="button-list">Car List</button>
+          <button className="button-buy" onClick={() => handleBuyItem(product[0].product_price.replace("R$", ""), product_id)}>Buy</button>
         </div>
       </div>
     </React.Fragment>

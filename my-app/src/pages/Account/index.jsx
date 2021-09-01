@@ -15,6 +15,7 @@ function Account() {
   // console.log(cookieDecoded);
 
   const url = "http://localhost:8080/userdelete";
+  const urlViewSale = "http://localhost:8080/viewsale";
 
   function handleDeleteAccount(id) {
     Server.post(url, {
@@ -35,6 +36,8 @@ function Account() {
         console.log("Error trying to delete")
       })
   }
+
+  Server.post(urlViewSale);
 
   const urlPassword = "http://localhost:8080/userupdate";
   const [newPassword, setNewPassword] = useState({
@@ -107,7 +110,7 @@ function Account() {
         <img src={PersonIcon} alt="Person icon" />
         <h2>{cookieDecoded.name}</h2>
         <button onClick={() => openModalNewPassword()}>Change password</button>
-        <button>History</button>
+        <button onClick={() => history.push('/history')}>History</button>
         <button id="delete-account" onClick={() => handleDeleteAccount(cookieDecoded.id)}>Delete account</button>
       </div>
     </React.Fragment >
