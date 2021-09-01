@@ -39,8 +39,6 @@ function ProductClicked() {
   }
 
   function handleBuyItem(item_price, item_id) {
-    console.log(item_price)
-    console.log(item_id)
     if (document.cookie) {
       Server.post(urlSale, {
         total_bought: item_price,

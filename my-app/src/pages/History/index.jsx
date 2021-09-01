@@ -20,8 +20,6 @@ function History() {
       })
   }, [])
 
-  console.log(purchaseHistory);
-
   return (
     <React.Fragment>
       <HeaderAfterLogin />

@@ -7,7 +7,6 @@ export default function CartProvider({ children }) {
 
   function addCart(item) {
     const foundId = cart.find(itemCart => itemCart.id === item.id);
-    console.log(foundId);
     if (foundId === undefined) {
       const newCart = cart;
       newCart.push(item);

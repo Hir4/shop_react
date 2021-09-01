@@ -43,10 +43,8 @@ function Signin() {
       creation_date: "NOW()"
     })
       .then(res => {
-        console.log(res);
         if (res.status === 200) {
           history.push('/login');
-          console.log(res);
           console.log("Signed with success");
         }
       })

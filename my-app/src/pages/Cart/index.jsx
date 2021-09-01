@@ -37,7 +37,6 @@ function Cart() {
         product_quantity: "1"
       })
         .then(res => {
-          console.log(res);
           if (res.status === 200) {
             console.log("Sale signed with success")
             removeCart(item_id);

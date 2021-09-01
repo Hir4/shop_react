@@ -24,7 +24,6 @@ function Login() {
       password: login.password
     })
       .then(res => {
-        console.log(res);
         if (res.status === 200) {
           document.cookie = "cookieId =" + res.data + ";";
           history.push(`/`);

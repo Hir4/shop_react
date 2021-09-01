@@ -12,7 +12,6 @@ function Account() {
   const history = useHistory();
   const cookie = document.cookie.split('=')[1];
   const cookieDecoded = jwt.decode(cookie);
-  // console.log(cookieDecoded);
 
   const url = "http://localhost:8080/userdelete";
   const urlViewSale = "http://localhost:8080/viewsale";
@@ -24,7 +23,6 @@ function Account() {
       update_date: "NOW()"
     })
       .then(res => {
-        console.log(res);
         if (res.status === 200) {
           document.cookie = "cookieId=;expires=" + new Date().toUTCString() + ";path=/";
           history.push(`/`);
@@ -46,15 +44,12 @@ function Account() {
   });
 
   function handleUpdateSubmit(formData) {
-    console.log(formData)
     formData.preventDefault();
-    console.log(newPassword)
     Server.post(urlPassword, {
       new_password: newPassword.new_password,
       update_date: "NOW()"
     })
       .then(res => {
-        console.log(res);
         if (res.status === 200) {
           console.log("Updated")
           document.getElementById("new_password").style.display = "none";
@@ -70,11 +65,8 @@ function Account() {
   }
 
   function handleUpdateChange(data) {
-    // console.log(data.target.id)
-    // console.log(data.target.value)
     const newData = { ...newPassword };
     newData[data.target.id] = data.target.value;
-    console.log(newData)
     setNewPassword(newData);
   }
 

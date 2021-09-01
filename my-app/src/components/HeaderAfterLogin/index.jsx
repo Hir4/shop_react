@@ -13,7 +13,6 @@ function Header() {
   const history = useHistory();
 
   function leaveSession(){
-    console.log("saiu")
     document.cookie = "cookieId=; expires=" + new Date().toUTCString() + ";path=/;"
     history.push(`/`)
   }

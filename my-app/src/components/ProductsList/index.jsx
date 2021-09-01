@@ -9,7 +9,6 @@ function Products() {
   const url = "http://localhost:8080/getproducts";
 
   const [products, setProducts] = useState([])
-  console.log("data")
 
   useEffect(() => {
     async function loadDataProduct() {
