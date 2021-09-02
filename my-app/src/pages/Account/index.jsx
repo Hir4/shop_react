@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
-import jwt from 'jsonwebtoken';
 import HeaderAfterLogin from '../../components/HeaderAfterLogin/index.jsx';
 import PersonIcon from '../../assets/images/icon-person.svg';
 import Back from '../../assets/images/back_button.svg';
@@ -10,15 +9,31 @@ import './styleAccount.css';
 
 function Account() {
   const history = useHistory();
-  const cookie = document.cookie.split('=')[1];
-  const cookieDecoded = jwt.decode(cookie);
 
   const url = "http://localhost:8080/userdelete";
+  const urlPassword = "http://localhost:8080/userupdate";
   const urlViewSale = "http://localhost:8080/viewsale";
+  const urlGetClient = "http://localhost:8080/getclientinfo";
 
-  function handleDeleteAccount(id) {
+  const [clientInfo, setclientInfo] = useState([]);
+
+  useEffect(() => {
+    Server.post(urlGetClient)
+      .then(res => {
+        if (res.status === 200) {
+          setclientInfo(res.data);
+          console.log(res.data);
+        }
+      })
+      .catch(() => {
+        console.log("Error trying to signed sale")
+      })
+  }, [])
+
+  console.log(clientInfo)
+
+  function handleDeleteAccount() {
     Server.post(url, {
-      id: id,
       delete_date: "NOW()",
       update_date: "NOW()"
     })
@@ -30,14 +45,13 @@ function Account() {
         }
       })
       .catch(() => {
-        // document.getElementById('error-message').textContent = "Check your info again";
         console.log("Error trying to delete")
       })
   }
 
   Server.post(urlViewSale);
 
-  const urlPassword = "http://localhost:8080/userupdate";
+
   const [newPassword, setNewPassword] = useState({
     new_password: "",
     update_date: "NOW()"
@@ -99,11 +113,29 @@ function Account() {
           </div>
         </div>
         <h1>Personal Info</h1>
-        <img src={PersonIcon} alt="Person icon" />
-        <h2>{cookieDecoded.name}</h2>
-        <button onClick={() => openModalNewPassword()}>Change password</button>
-        <button onClick={() => history.push('/history')}>History</button>
-        <button id="delete-account" onClick={() => handleDeleteAccount(cookieDecoded.id)}>Delete account</button>
+        {clientInfo.map(client => {
+          return (
+            <div className="organization-options-informations">
+              <div className="container-perfil-options">
+                <img src={PersonIcon} alt="Person icon" />
+                <h2>{client.first_name}</h2>
+                <button onClick={() => openModalNewPassword()}>Change password</button>
+                <button onClick={() => history.push('/history')}>History</button>
+                <button id="delete-account" onClick={() => handleDeleteAccount()}>Delete account</button>
+              </div>
+              <div className="container-perfil-informations">
+                <input type="text" value={client.email} size="20" readOnly />
+                <input type="text" value={client.document} size="30" readOnly />
+                <input type="text" value={client.address} size="20" readOnly />
+                <input type="text" value={client.city} size="30" readOnly />
+                <input type="text" value={client.state} size="10" readOnly />
+                <input type="text" value={client.zip_code} size="10" readOnly />
+                <input type="text" value={client.phone_ddd} size="5" readOnly />
+                <input type="text" value={client.phone_number} size="10" readOnly />
+              </div>
+            </div>
+          )
+        })}
       </div>
     </React.Fragment >
   );

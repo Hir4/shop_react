@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import HeaderAfterLogin from '../../components/HeaderAfterLogin/index.jsx';
 import PackIcon from '../../assets/images/pack-icon.png';
 import Server from './../../services/server.js';
-// import Back from '../../assets/images/back_button.svg';
+import Back from '../../assets/images/back_button.svg';
 import { useCart } from '../../context/cart.js';
 // import SaleConfirmation from '../../components/SaleConfirmation/index.jsx';
 import './styleCart.css';
@@ -55,6 +55,12 @@ function Cart() {
       {/* <SaleConfirmation cart={cart} /> */}
       {getHeader()}
       <div className="container-cart">
+        <div className="container-title-back">
+          <div className="back-button" onClick={() => window.history.back()}>
+            <img id="back-button-img" src={Back} alt="Back button" />
+            <span>Back</span>
+          </div>
+        </div>
         <h1>Shopping Cart</h1>
         {cart.map(item => {
           return (

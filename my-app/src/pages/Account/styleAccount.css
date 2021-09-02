@@ -46,8 +46,57 @@
   align-items: center;
   margin: 15px 0;
 }
+
 .container-account img {
   width: 150px;
+}
+
+.container-account h1, .container-account h2{
+  color: #292929;
+}
+
+.container-account button, #new-password-modal button{
+  width: 150px;
+  height: 30px;
+  background-color: #EF963F;
+  text-align: center;
+  color: #ffffff;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  margin: 15px 0;
+  cursor: pointer;
+}
+
+.container-account button:hover{
+  opacity: 0.9;
+}
+
+.organization-options-informations{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 768px;
+}
+.container-perfil-options{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-perfil-informations{
+  width: 500px;
+}
+
+.container-perfil-informations input{
+  height: 30px;
+  padding-left: 10px;
+  margin: 10px;
+  border: solid #FFB64C 1px;
+  border-radius: 5px;
+  background-color: #f3f3f3;
 }
 
 .container-title-back{
@@ -77,27 +126,6 @@
 #new-password-modal span{
   margin-left: 0;
   color: #EF963F;
-}
-
-.container-account h1, .container-account h2{
-  color: #292929;
-}
-
-.container-account button, #new-password-modal button{
-  width: 150px;
-  height: 30px;
-  background-color: #EF963F;
-  text-align: center;
-  color: #ffffff;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  margin: 15px 0;
-  cursor: pointer;
-}
-
-.container-account button:hover{
-  opacity: 0.9;
 }
 
 #delete-account{

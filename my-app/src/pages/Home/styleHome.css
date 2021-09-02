@@ -48,38 +48,3 @@
   right: 100px;
   width: 1000px;
 }
-
-.list-products{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding-top: 50px;
-}
-
-.product{
-  display: flex;
-  flex-direction:column;
-  flex: 0 0 23%;
-  height: 300px;
-  margin: 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.product img{
-  width: 200px;
-  margin: 0 auto;
-}
-
-.product span{
-  margin-top: 5px;
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-  color: #242424;
-}
-
-.product:hover :last-child{
-  color: #EF963F;
-}

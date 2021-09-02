@@ -106,3 +106,9 @@
 .button-list:hover, .button-buy:hover{
   opacity: 0.9;
 }
+
+@media (max-width: 1366px) {
+.container-all{
+  width: 1280px;
+}
+}

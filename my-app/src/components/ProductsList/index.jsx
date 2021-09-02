@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
 import Server from './../../services/server.js';
 import PackIcon from '../../assets/images/pack-icon.png';
+import './styleProductsList.css';
 
 function Products() {
   const history = useHistory();
@@ -34,7 +35,8 @@ function Products() {
       {products.map(product => (
         <div className="product" key={product.id} onClick={() => getProduct(product.id)}>
           <img src={PackIcon} alt="product-icon" />
-          <span>{product.product_name}</span>
+          <span className="product-list-name">{product.product_name}</span>
+          <span className="product-list-price">{product.product_price}</span>
         </div>
       ))}
     </div>

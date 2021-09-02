@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import HeaderAfterLogin from '../../components/HeaderAfterLogin/index.jsx';
 import Server from './../../services/server.js';
 import PackIcon from '../../assets/images/pack-icon.png';
+import Back from '../../assets/images/back_button.svg';
 import './styleHistory.css';
 
 function History() {
@@ -24,6 +25,12 @@ function History() {
     <React.Fragment>
       <HeaderAfterLogin />
       <div className="container-history">
+        <div className="container-title-back">
+          <div className="back-button" onClick={() => window.history.back()}>
+            <img id="back-button-img" src={Back} alt="Back button" />
+            <span>Back</span>
+          </div>
+        </div>
         <h1>Purchase History</h1>
         {purchaseHistory.map(item => {
           return (
@@ -37,7 +44,7 @@ function History() {
             </div>
           )
         })}
-        </div>
+      </div>
     </React.Fragment>
   )
 }
