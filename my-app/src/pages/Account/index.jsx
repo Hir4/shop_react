@@ -95,6 +95,11 @@ function Account() {
     document.getElementById("new-password-modal").style.visibility = "hidden";
     document.getElementById("new-password-modal-confirmation").classList.toggle("new-password-modal-animation");
   }
+  
+  function modalDeleteAccount() {
+    document.getElementById("new-password-modal-confirmation").className = ("new-password-modal-hidden");
+    document.getElementById("confirme-delete-account-modal").style.visibility = "visible"
+  }
 
   return (
     <React.Fragment>
@@ -131,7 +136,7 @@ function Account() {
                 <h2>{client.first_name}</h2>
                 <button onClick={() => openModalNewPassword()}>Change password</button>
                 <button onClick={() => history.push('/history')}>History</button>
-                <button id="delete-account" onClick={() => document.getElementById("confirme-delete-account-modal").style.visibility = "visible"}>Delete account</button>
+                <button id="delete-account" onClick={() => modalDeleteAccount()}>Delete account</button>
               </div>
               <div className="container-perfil-informations">
                 <input type="text" value={client.email} size="20" readOnly />

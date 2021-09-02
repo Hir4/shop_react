@@ -78,6 +78,12 @@
   color: #292929;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 @media (max-width: 1366px){
   .container-signin{
     max-width: 960px;

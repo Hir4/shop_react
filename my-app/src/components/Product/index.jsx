@@ -54,7 +54,7 @@ function ProductClicked() {
       })
         .then(res => {
           if (res.status === 200) {
-            history.push(`/`)
+            history.push(`/history`)
             console.log("Sale signed with success");
           }
         })
