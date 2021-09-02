@@ -6,7 +6,6 @@ import PackIcon from '../../assets/images/pack-icon.png';
 import Server from './../../services/server.js';
 import Back from '../../assets/images/back_button.svg';
 import { useCart } from '../../context/cart.js';
-// import SaleConfirmation from '../../components/SaleConfirmation/index.jsx';
 import './styleCart.css';
 
 function Cart() {
@@ -43,7 +42,6 @@ function Cart() {
           }
         })
         .catch(() => {
-          // document.getElementById('error-message').textContent = "Check your info again";
           console.log("Error trying to signed sale")
         })
     } else { history.push(`/login`); }
@@ -52,7 +50,6 @@ function Cart() {
 
   return (
     <React.Fragment>
-      {/* <SaleConfirmation cart={cart} /> */}
       {getHeader()}
       <div className="container-cart">
         <div className="container-title-back">
