@@ -4,7 +4,7 @@ import './styleProduct.css';
 
 function Product() {
   return (
-    <ProductClicked />
+      <ProductClicked />
   )
 }
 

@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 import HeaderAfterLogin from '../../components/HeaderAfterLogin/index.jsx';
 import PersonIcon from '../../assets/images/icon-person.svg';
 import Back from '../../assets/images/back_button.svg';
-import CheckIcon from '../../assets/images/check.png';
 import Server from './../../services/server.js';
 import './styleAccount.css';
 
@@ -69,7 +68,6 @@ function Account() {
           document.getElementById("new_password").style.display = "none";
           document.getElementById("send-new-password").style.display = "none";
           document.getElementById("cancel-new-password").style.display = "none";
-          document.getElementById("check-icon").style.display = "block";
         }
       })
       .catch(() => {
@@ -86,10 +84,16 @@ function Account() {
 
   function openModalNewPassword() {
     document.getElementById("new-password-modal").style.visibility = "visible"
+    document.getElementById("new-password-modal-confirmation").className = ("new-password-modal-hidden");
+    document.getElementById("new_password").value = "";
     document.getElementById("new_password").style.display = "block";
     document.getElementById("send-new-password").style.display = "block";
     document.getElementById("cancel-new-password").style.display = "block";
-    document.getElementById("check-icon").style.display = "none";
+  }
+
+  function modalConfirmationNewPassword() {
+    document.getElementById("new-password-modal").style.visibility = "hidden";
+    document.getElementById("new-password-modal-confirmation").classList.toggle("new-password-modal-animation");
   }
 
   return (
@@ -98,11 +102,17 @@ function Account() {
         <form id="update-form" onSubmit={(formData) => handleUpdateSubmit(formData)}>
           <span>Change password</span>
           <input type="password" onChange={(data) => handleUpdateChange(data)} id="new_password" value={newPassword.new_password} placeholder="New password" required />
-          <button type="submit" id="send-new-password">Send</button>
+          <button type="submit" id="send-new-password" onClick={() => modalConfirmationNewPassword()}>Send</button>
           <button type="button" id="cancel-new-password" onClick={() => document.getElementById("new-password-modal").style.visibility = "hidden"}>Cancel</button>
           <span id="error-message"></span>
-          <img src={CheckIcon} alt="Check icon" id="check-icon" onClick={() => document.getElementById("new-password-modal").style.visibility = "hidden"} />
         </form>
+      </div>
+      <div id="confirme-delete-account-modal">
+        <div>
+          <span>Are you sure about delete the account?</span>
+          <button type="submit" id="confirme-delete-account-button" onClick={() => handleDeleteAccount()}>Confirme</button>
+          <button type="button" id="cancel-delete-account" onClick={() => document.getElementById("confirme-delete-account-modal").style.visibility = "hidden"}>Cancel</button>
+        </div>
       </div>
       <HeaderAfterLogin />
       <div className="container-account">
@@ -121,7 +131,7 @@ function Account() {
                 <h2>{client.first_name}</h2>
                 <button onClick={() => openModalNewPassword()}>Change password</button>
                 <button onClick={() => history.push('/history')}>History</button>
-                <button id="delete-account" onClick={() => handleDeleteAccount()}>Delete account</button>
+                <button id="delete-account" onClick={() => document.getElementById("confirme-delete-account-modal").style.visibility = "visible"}>Delete account</button>
               </div>
               <div className="container-perfil-informations">
                 <input type="text" value={client.email} size="20" readOnly />
@@ -136,6 +146,9 @@ function Account() {
             </div>
           )
         })}
+      </div>
+      <div id="new-password-modal-confirmation" className="new-password-modal-hidden">
+        <span>Password changed with success</span>
       </div>
     </React.Fragment >
   );

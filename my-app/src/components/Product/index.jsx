@@ -59,7 +59,6 @@ function ProductClicked() {
           }
         })
         .catch(() => {
-          // document.getElementById('error-message').textContent = "Check your info again";
           console.log("Error trying to signed sale")
         })
     } else { history.push(`/login`) }
@@ -67,6 +66,13 @@ function ProductClicked() {
 
   return (
     <React.Fragment>
+      <div id="confirme-buy-product-modal">
+        <div>
+          <span>Are you sure about buying this product?</span>
+          <button type="submit" className="confirme-buy-product-button" onClick={() => handleBuyItem(product[0].product_price.replace("R$", ""), product_id)}>Confirme</button>
+          <button type="button" className="cancel-buy-product" onClick={() => document.getElementById("confirme-buy-product-modal").style.visibility = "hidden"}>Cancel</button>
+        </div>
+      </div>
       {getHeader()}
       <div className="container-all">
         <div className="back-button" onClick={() => window.history.back()}>
@@ -98,7 +104,7 @@ function ProductClicked() {
         <span className="product-price">{product[0].product_price}</span>
         <div className="product-buttons">
           <button onClick={() => { addCart(product[0]) }} className="button-list">Car List</button>
-          <button className="button-buy" onClick={() => handleBuyItem(product[0].product_price.replace("R$", ""), product_id)}>Buy</button>
+          <button className="button-buy" onClick={() => document.getElementById("confirme-buy-product-modal").style.visibility = "visible"}>Buy</button>
         </div>
       </div>
     </React.Fragment>
