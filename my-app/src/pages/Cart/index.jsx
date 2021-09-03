@@ -62,7 +62,7 @@ function Cart() {
         {cart.map(item => {
           return (
             <div className="product-in-cart">
-              <img src={PackIcon} alt="Pack icon" />
+              {(item.img_path === null ? <img src={PackIcon} alt="product-icon" /> : <img src={`${item.img_path}`} alt="product-icon" />)}
               <span>{item.product_name}</span>
               <span>{item.product_price}</span>
               <span>1</span>

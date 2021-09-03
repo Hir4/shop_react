@@ -15,6 +15,10 @@
   width: 50px;
 }
 
+.product-image{
+  width: 550px;
+}
+
 .back-button span, #confirme-buy-product-modal span{
   margin-left: 5px;
   font-size: 24px;

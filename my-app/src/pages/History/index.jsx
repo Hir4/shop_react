@@ -35,7 +35,7 @@ function History() {
         {purchaseHistory.map(item => {
           return (
             <div className="container-product-sale">
-              <img src={PackIcon} alt="Pack icon" />
+              {(item.img_path === null ? <img src={PackIcon} alt="product-icon" /> : <img src={`${item.img_path}`} alt="product-icon" />)}
               <span>{item.product_name}</span>
               <span>{item.method_type}</span>
               <span>{item.total_bought}</span>

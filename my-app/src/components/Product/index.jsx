@@ -81,7 +81,7 @@ function ProductClicked() {
         </div>
         <span className="location-bar">home {'>'} {product[0].product_type}</span>
         <div className="container-product">
-          <img src={PackIcon} alt="Pack icon" />
+        {(product.img_path === null ? <img src={PackIcon} className="product-image" alt="product-icon" /> : <img src={`${product[0].img_path}`} className="product-image" alt="product-icon" />)}
           <div className="product-info">
             <span className="product-name">{product[0].product_name}</span>
             <div>

@@ -30,11 +30,12 @@ function Products() {
     history.push(`/product/${product_id}`)
   }
 
+  console.log(products);
   return (
     <div className="list-products">
       {products.map(product => (
         <div className="product" key={product.id} onClick={() => getProduct(product.id)}>
-          <img src={PackIcon} alt="product-icon" />
+          {(product.img_path === null ? <img src={PackIcon} alt="product-icon" /> : <img src={`${product.img_path}`} alt="product-icon" />)}
           <span className="product-list-name">{product.product_name}</span>
           <span className="product-list-price">{product.product_price}</span>
         </div>
