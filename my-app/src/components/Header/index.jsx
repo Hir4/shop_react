@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useHistory, Link } from "react-router-dom";
 import BoxIcon from '../../assets/images/box.svg';
 import Logo from '../../assets/logo/logo_white.svg';
@@ -11,6 +11,22 @@ function Header() {
   const { cart } = useCart();
   
   const history = useHistory();
+
+  const [search, setSearch] = useState({
+    search_input: ""
+  });
+
+  function handleSearchProductSubmit(formData){
+    formData.preventDefault();
+    history.push(`/searchproduct/${search.search_input}`);
+  }
+
+  function handleSearchProductChange(data){
+    const newData = { ...search };
+    newData[data.target.id] = data.target.value;
+    setSearch(newData);
+  }
+
   return (
     <div className="container-header">
       <header>
@@ -25,13 +41,8 @@ function Header() {
           <Link to="/">
             <img id="logo" src={Logo} alt="Logo icon" />
           </Link>
-          <form>
-            <select id="electronics">
-              <option value="processors">Processors</option>
-              <option value="graphic_video">Graphic Video</option>
-              <option value="hd">HD</option>
-            </select>
-            <input id="search_input" type="search" placeholder="Search something..." />
+          <form onSubmit={(formData) => handleSearchProductSubmit(formData)}>
+            <input id="search_input" type="search" placeholder="Search something..."  onChange={(data) => handleSearchProductChange(data)} value={search.search_input} />
             <button id="button_submit" type="submit"><img src={Mgnf_glass} alt="Magnifying glass icon" /></button>
           </form>
           <div className="account-cart">

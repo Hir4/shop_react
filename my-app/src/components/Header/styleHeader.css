@@ -67,7 +67,7 @@ form{
   height: 3.5vh;
   padding-left: 5px;
   border: none;
-  border-radius: 0;
+  border-radius: 5px 0 0 5px;
   color: #292929;
   font-size: 14px;
 }
