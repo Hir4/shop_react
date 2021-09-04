@@ -11,7 +11,6 @@ function Account() {
 
   const url = "http://localhost:8080/userdelete";
   const urlPassword = "http://localhost:8080/userupdate";
-  const urlViewSale = "http://localhost:8080/viewsale";
   const urlGetClient = "http://localhost:8080/getclientinfo";
 
   const [clientInfo, setclientInfo] = useState([]);
@@ -47,8 +46,6 @@ function Account() {
         console.log("Error trying to delete")
       })
   }
-
-  Server.post(urlViewSale);
 
 
   const [newPassword, setNewPassword] = useState({

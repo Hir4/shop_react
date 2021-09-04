@@ -9,6 +9,8 @@ function History() {
   const url = "http://localhost:8080/viewsale";
   const [purchaseHistory, setPurchaseHistory] = useState([]);
 
+  Server.post(url);
+
   useEffect(() => {
     Server.get(url)
       .then(res => {
