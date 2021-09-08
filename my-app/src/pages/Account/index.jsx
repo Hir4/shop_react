@@ -31,7 +31,7 @@ function Account() {
   console.log(clientInfo)
 
   function handleDeleteAccount() {
-    Server.post(url, {
+    Server.delete(url, {
       delete_date: "NOW()",
       update_date: "NOW()"
     })
